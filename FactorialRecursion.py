@@ -1,9 +1,4 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Thu Nov 29 15:40:38 2018
-
-@author: FY
-"""
+# python3
 
 def recur_factorial(n):
     #Function to return the factorial of a number using recursion
