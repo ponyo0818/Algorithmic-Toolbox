@@ -10,7 +10,7 @@ def get_change(m):
     for i in range(0,n):
         print('i is: ',i)
         if m==0:
-            return A
+            return sum(A)
         elif B[i]<=m:
             number=int(m/B[i]) #number of each coin
             print('number and coin value is:',number, B[i])
