@@ -2,22 +2,41 @@
 import sys
 import random
 
-def partition3(a, l, r):
-    #write your code here
-    x,j,t=a[l],l,r
-    i=j
+# =============================================================================
+# def partition3(a, l, r):
+#     #write your code here
+#     x,j,t=a[l],l,r
+#     i=j
+#     
+#     while i<=t:
+#         if a[i]<x:
+#             a[j], a[i]=a[i],a[j]
+#             j+=1
+#             
+#         elif a[i]>x:
+#             a[t],a[i]=a[i],a[t]
+#             t-=1
+#             i-=1 #remain in the same i in this case
+#         i+=1
+#     return j
+# =============================================================================
+def partition3(a,l,r):
+    pivot_value=a[l]
+    p_l=i=l
+    p_r=r
     
-    while i<=t:
-        if a[i]<x:
-            a[j], a[i]=a[i],a[j]
-            j+=1
-            
-        elif a[i]>x:
-            a[t],a[i]=a[i],a[t]
-            t-=1
-            i-=1 #remain in the same i in this case
-        i+=1
-    return j
+    while i<=p_r:
+        if a[i]<pivot_value:
+            a[i],a[p_l]=a[p_l],a[i]
+            p_l+=1
+            i+=1
+        elif a[i]==pivot_value:
+            i+=1
+        else:
+            a[i],a[p_r]=a[p_r],a[i]
+            p_r-=1
+        pIndexes=[p_l,p_r]
+    return pIndexes
 
 def partition2(a, l, r):
     x = a[l]
@@ -37,8 +56,8 @@ def randomized_quick_sort(a, l, r):
     a[l], a[k] = a[k], a[l]
     #use partition3
     m = partition3(a, l, r)
-    randomized_quick_sort(a, l, m - 1);
-    randomized_quick_sort(a, m + 1, r);
+    randomized_quick_sort(a, l, m[0] - 1);
+    randomized_quick_sort(a, m[1] + 1, r);
 
 
 if __name__ == '__main__':
