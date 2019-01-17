@@ -20,7 +20,7 @@ def lcs2(a, b):
             elif a[i-1]==b[j-1]:
                 L[i][j]=L[i-1][j-1]+1
             else:
-                L[i][j]=max[L[i-1][j],L[i][j-1]]
+                L[i][j]=max(L[i-1][j],L[i][j-1])
     
     return L[i][j]
     
