@@ -8,7 +8,9 @@ def evalt(a, b, op):
         return a * b
     else:
         assert False
-
+#m[i][j] - the minimized values
+#M[i][j] - the maximized values
+        
 def MinMax(i, j, op, m, M):
     mmin = 10000
     mmax = -10000
@@ -31,6 +33,7 @@ def get_maximum_value(dataset):
     for i in range(n):
         m[i][i] = int(d[i])   #so that the tables will look like
         M[i][i] = int(d[i])   #[[i, 0, 0...], [0, i, 0...], [0, 0, i,...]]
+        
     for s in range(1,n):   #here's where I get confused
         for i in range(n-s):
             j = i + s
